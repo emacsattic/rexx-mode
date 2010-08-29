@@ -1,0 +1,25 @@
+Unfortunately it seems that emacs 19.34.1 (and possiblly emacs 20) for
+the Amiga doesn't have a working implimentation of the elisp command
+"start-process" which is used by the rexx-debug mode (and many others. 
+Hence rexx-debug doesn't work on my machine if anyone knows any different
+please let me know.
+
+This package still contains the "rxnq" fix from the original package but 
+I don't know if it stilled needed, "shell-command rx blah.rxx arg1" seems
+to work well enough.
+
+James Perrin <james.perrin@ntlworld.com>
+
+== Original Amiga.readme ==================================================
+
+	The Amigaport V1.26 of GNUEmacs has a annoying bug; it quotes
+	all arguments to commands, therefore RX can't be called directly.
+
+	A workaround is to specify rexx-command-name to "rxnq", which
+	is a small (280 bytes!) command which strips the quotes and
+	calls RX. To do this, place the following lines into the
+	rxdb-mode-hook is the s:.emacs file.
+
+		(setq rxdb-command-name "rxnq")
+
+	And place rxnq in the loadpath.
